@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Pedidas</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        table { width: 50%; border-collapse: collapse; }
+        th, td { border: 1px solid black; padding: 8px; text-align: left; }
+        th { background-color: #f2f2f2; }
+    </style>
+</head>
+<body>
+    <h1>Lista de Pedidos</h1>
+    <table>
+        <tr>
+            <th>id_pedido</th>
+            <th>id_cliente</th>
+            <th>fecha_pedido</th>
+            <th>fecha_entrega</th>
+            <th>total</th>
+            <th>estado</th>
+        </tr>
+        {% for Pedido in pedidos %}
+        <tr>
+            <td>{{ Pedido.id_pedido}}</td>
+            <td>{{ Pedido.id_cliente}}</td>
+            <td>{{ Pedido.fecha_pedido }}</td>
+            <td>{{ Pedido.fecha_entrega }}</td>
+            <td>{{ Pedido.total }}</td>
+            <td>{{ Pedido.estado}}</td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="3">No hay pedidos registrados.</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
